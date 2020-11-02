@@ -1,0 +1,40 @@
+list=[]
+def tree(result,count):
+   
+    if count ==8:
+        list.append(result)
+        return
+
+    if count<8: 
+        tree(result+"0",count+1)
+        
+        tree(result+"1",count+1)
+
+tree("",0)
+
+#print(list)
+
+
+def whoIsCriminals():
+   
+    number=0
+    for i in list:
+        crime=True
+        
+        if int(i[0])+int(i[1])<1:
+            crime=False
+        if int(i[0])+int(i[2])+int(i[3])+int(i[4])<2:
+            crime=False
+        if int(i[1])+int(i[4])!=0 and int(i[1])+int(i[4])!=2:
+            crime=False
+        if int(i[2])+int(i[3])+int(i[5])+int(i[6])<3:
+            crime=False
+        if int(i[6])+int(i[7])!=1:
+            crime=False
+        if int(i[4])==0 and int(i[7])!=0:
+            crime=False
+            
+        if crime==True:
+            number+=1
+            
+    return number
